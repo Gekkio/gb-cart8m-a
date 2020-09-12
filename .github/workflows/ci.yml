@@ -8,8 +8,25 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
+  check:
+    name: Run checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install poetry
+        run: pip install poetry
+      - name: Run poetry install
+        run: poetry install
+      - name: Run poetry run check
+        run: poetry run check
   test:
     name: Run tests
+    needs: [check]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -15,7 +15,9 @@ black = "^20.8b1"
 
 [tool.poetry.scripts]
 assemble = "scripts:assemble"
+check = "scripts:check"
 clean = "scripts:clean"
+fmt = "scripts:fmt"
 test = "scripts:test"
 
 [build-system]
