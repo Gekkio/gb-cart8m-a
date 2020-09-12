@@ -3,6 +3,7 @@ import unittest
 
 from gb_cart8m_a.mbc5 import Mbc5
 
+
 class Mbc5Test(unittest.TestCase):
     def setUp(self):
         self.mbc = Mbc5()
@@ -36,6 +37,7 @@ class Mbc5Test(unittest.TestCase):
 
     def test_ram_en(self):
         sim = Simulator(self.mbc)
+
         def proc():
             yield from self.reset()
 
@@ -51,6 +53,7 @@ class Mbc5Test(unittest.TestCase):
 
     def test_rom_banks(self):
         sim = Simulator(self.mbc)
+
         def proc():
             yield from self.reset()
 
@@ -70,6 +73,7 @@ class Mbc5Test(unittest.TestCase):
 
     def test_ram_banks(self):
         sim = Simulator(self.mbc)
+
         def proc():
             yield from self.reset()
 

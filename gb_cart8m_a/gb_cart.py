@@ -47,10 +47,7 @@ class GbCart(Elaboratable):
             self.rom_bank.eq(self.mbc.rom_bank),
         ]
 
-        m.d.comb += [
-            rom_cs.eq(~self.cart_addr[15]),
-            any_cs.eq(self.ram_cs ^ rom_cs)
-        ]
+        m.d.comb += [rom_cs.eq(~self.cart_addr[15]), any_cs.eq(self.ram_cs ^ rom_cs)]
 
         m.d.comb += self.data_dir.eq(
             Mux(self.cart_rd & any_cs, DataDirection.OUTPUT, DataDirection.INPUT)

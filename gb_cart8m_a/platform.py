@@ -116,7 +116,7 @@ class GbCartPlatform(IntelPlatform):
             set_input_delay -clock { gb_clk } 20 [get_ports {cart_rd_* cart_wr_* cart_cs_* cart_addr_* cart_data_* rom_wr_*}]
             set_output_delay -clock { gb_clk } 20 [get_ports {ram_bank_* rom_bank_* data_dir_* ram_cs_* cart_oe_*}]
             set_false_path -from [get_ports {cart_rst_*}] -to *
-        """
+        """,
     }
 
     def get_input(self, pin, port, attrs, invert):
